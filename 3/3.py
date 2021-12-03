@@ -1,4 +1,4 @@
-with open("generator.txt") as f:
+with open("3data.txt") as f:
     lines = f.read().splitlines()
 
 for i in range(len(lines)):
@@ -11,31 +11,45 @@ for y in range(len(lines)):
 generator = 0
 scrubber = 0
 
-for x in range(12):
 
-    count0 = 0
-    count1 = 0
+while True:
+    for x in range(12):
 
-    for y in range(len(lines)):
-        if lines[y][x] == 0:
-            count0 += 1
-        elif lines[y][x] == 1:
-            count1 += 1
+        count0 = 0
+        count1 = 0
 
-    if count1 >= count0:
-        generator = 1
-        scrubber = 0
-    else:
-        generator = 0
-        scrubber = 1
+        for y in range(len(lines)):
+            if lines[y][x] == 0:
+                count0 += 1
+            elif lines[y][x] == 1:
+                count1 += 1
 
-    for line in lines:
-        if line[x] != scrubber:
-            lines.remove(line)
+        if count1 >= count0:
+            generator = 1
+            scrubber = 0
+        else:
+            generator = 0
+            scrubber = 1
+
+        if len(lines) == 1:
+            print(lines)
+            s = "110100111000"
+            g = "001101001001"
+
+            print(int(s, 2) * int(g, 2))
 
 
-print(lines)
+        new_list = []
 
-#001101010100
+        for line in lines:
+            if line[x] == generator:
+                new_list.append(line)
+
+        lines = new_list.copy()
+
+
+
+
+
 
 
