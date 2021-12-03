@@ -4,41 +4,35 @@ with open("3data.txt") as f:
 for i in range(len(lines)):
     lines[i] = list(lines[i])
 
-for x in range(len(lines)):
-    for y in range(len([lines[x]])):
-        lines[x][y] = int(lines[x][y])
+for y in range(len(lines)):
+    for x in range(len(lines[y])):
+        lines[y][x] = int(lines[y][x])
 
-gamma = []
-epsilon = []
+generator = 0
+scrubber = 0
 
-count0 = 0
-count1 = 0
+for x in range(12):
 
-for x in range(len(lines[x])):
+    count0 = 0
+    count1 = 0
+
     for y in range(len(lines)):
         if lines[y][x] == 0:
             count0 += 1
-        else:
+        elif lines[y][x] == 1:
             count1 += 1
 
-    if count1 > count0:
-        gamma.append(1)
-        epsilon.append(0)
+    if count1 >= count0:
+        generator = 1
+        scrubber = 0
     elif count1 < count0:
-        gamma.append(0)
-        epsilon.append(1)
+        generator = 0
+        scrubber = 1
 
-gs = [str(integer) for integer in gamma]
-ags = "".join(gs)
-g = int(ags)
-
-es = [str(integer) for integer in epsilon]
-aes = "".join(es)
-e = int(aes)
-
-
-print(g)
-print(e)
+    for line in lines:
+        if line[x] != generator:
+            lines.remove(line)
 
 
 
+print(lines)
