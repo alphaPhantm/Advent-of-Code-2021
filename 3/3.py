@@ -1,4 +1,4 @@
-with open("3data.txt") as f:
+with open("generator.txt") as f:
     lines = f.read().splitlines()
 
 for i in range(len(lines)):
@@ -25,14 +25,17 @@ for x in range(12):
     if count1 >= count0:
         generator = 1
         scrubber = 0
-    elif count1 < count0:
+    else:
         generator = 0
         scrubber = 1
 
     for line in lines:
-        if line[x] != generator:
+        if line[x] != scrubber:
             lines.remove(line)
 
 
-
 print(lines)
+
+#001101010100
+
+
