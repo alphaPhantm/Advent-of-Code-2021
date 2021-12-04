@@ -37,6 +37,7 @@ while True:
             g = "001101001001"
 
             print(int(s, 2) * int(g, 2))
+            exit(10)
 
 
         new_list = []
