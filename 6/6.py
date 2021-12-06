@@ -4,7 +4,7 @@ with open("6data.txt") as f:
 for z in range(len(initial_state)):
     initial_state[z] = int(initial_state[z])
 
-for d in range(256):
+for d in range(80):
     for i in range(len(initial_state)):
         if initial_state[i] == 0:
             initial_state[i] = 6
