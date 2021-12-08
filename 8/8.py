@@ -17,6 +17,7 @@ digits_key = [
 ]
 digits = tuple(sorted(digits_key))
 
+for line in input_data:
 
 
 print("")
