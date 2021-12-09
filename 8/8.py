@@ -1,9 +1,13 @@
+from itertools import count
+
 import numpy as np
+
 
 def get_key(dict, val):
     for key, value in dict.items():
         if val == value:
             return key
+
 
 with open("8data.in") as d:
     raw_data = d.read().strip().split("\n")
@@ -46,8 +50,18 @@ for i in range(len(input_data)):
             if map[1][0] in input_data[i][0][y] and map[1][1] in input_data[i][0][y]:
                 map[3] = input_data[i][0][y]
             else:
-                x = list(set(map[4]) - set(map[1]))
-                if x[0] in input_data[i][0][y] and x[1] in input_data[i][0][y]:
+                x = map[1] + map[4]
+                x = list(x)
+                for elem in x:
+                    if x.count(elem) > 1:
+                        x = [value for value in x if value != elem]
+
+                missing = 0
+                for elem in x:
+                    if elem not in input_data[i][0][y]:
+                        missing += 1
+
+                if missing == 0:
                     map[5] = input_data[i][0][y]
                 else:
                     map[2] = input_data[i][0][y]
