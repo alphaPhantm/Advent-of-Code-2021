@@ -4,7 +4,7 @@ from pathfinding.core.diagonal_movement import DiagonalMovement
 from pathfinding.core.grid import Grid
 from pathfinding.finder.a_star import AStarFinder
 
-with open("9data.txt") as d:
+with open("10data.in") as d:
     raw_data = d.read().split()
     input_data = [[int(num) for num in list(line)] for line in raw_data]
 
