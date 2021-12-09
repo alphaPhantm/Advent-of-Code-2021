@@ -50,21 +50,7 @@ for i in range(len(input_data)):
             if map[1][0] in input_data[i][0][y] and map[1][1] in input_data[i][0][y]:
                 map[3] = input_data[i][0][y]
             else:
-                x = map[1] + map[4]
-                x = list(x)
-                for elem in x:
-                    if x.count(elem) > 1:
-                        x = [value for value in x if value != elem]
-
-                missing = 0
-                for elem in x:
-                    if elem not in input_data[i][0][y]:
-                        missing += 1
-
-                if missing == 0:
-                    map[5] = input_data[i][0][y]
-                else:
-                    map[2] = input_data[i][0][y]
+                print(input_data[i][0][y])
 
         elif len(input_data[i][0][y]) == 6:
             if map[1][0] in input_data[i][0][y] and map[1][1] in input_data[i][0][y]:
